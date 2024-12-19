@@ -526,7 +526,11 @@ class Project(QMainWindow):
 
                     # Формируем корректный абсолютный путь к файлу
                     file_path = os.path.join(base_path, 'assets', 'GalarmMusic.mp3')
+
+                    # Исправление для playsound: используем raw-путь
                     file_path = os.path.abspath(file_path)
+
+                    # Запускаем воспроизведение в отдельном потоке
                     threading.Thread(target=playsound, args=(file_path,)).start() 
                 
     
